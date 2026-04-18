@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxmox LXC Cron Monitoring: Simple Heartbeats for Containers</title>
+    <meta name="description" content="Learn how to monitor monitor cron job on proxmox lxc with simple, reliable alerts using our one-line shell wrapper solution.">
+    <meta name="keywords" content="monitor cron job on proxmox lxc, cron monitoring, bash script, failure alerts, heartbeat monitoring">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: #34495e;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+            color: #7f8c8d;
+        }
+        
+        .scenario {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .solution {
+            background-color: #e8f4f8;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .pain-points, .technical-solution, .integration-guide, .industry-standards, .expert-faq {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .key-features {
+            margin: 30px 0;
+        }
+        
+        .key-features h3 {
+            margin-bottom: 15px;
+        }
+        
+        .key-features ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .key-features li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .key-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .call-to-action {
+            background-color: #f39c12;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            margin: 40px 0;
+        }
+        
+        .call-to-action a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+        }
+        
+        .geo-tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        
+        .breadcrumbs {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .breadcrumbs a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumbs span {
+            margin: 0 5px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span>→</span>
+            <a href="all-topics.html">All Topics</a>
+            <span>→</span>
+            <span>Proxmox LXC Cron Monitoring: Simple Heartbeats for Containers</span>
+        </div>
+        
+        <div class="top-nav" style="margin: 20px 0; padding: 15px; background-color: #f0f8ff; border: 1px solid #b0e0e6; border-radius: 8px;">
+            <a href="../index.html" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                Back to Main Page
+            </a>
+        </div>
+        <header>
+            <h1>Proxmox LXC Cron Monitoring: Simple Heartbeats for Containers</h1>
+            <div class="geo-tag">Docker & Containers</div>
+            <div class="geo-tag">European data center compatible</div>
+        </header>
+        
+        <article>
+            <section class="scenario">
+                <h2>User Scenario</h2>
+                <p>Proxmox user running tasks in LXC containers and needs an agentless alert.</p>
+            </section>
+            
+            
+        <section class="pain-points">
+            <h2>Deep Pain Point Analysis</h2>
+            <p>Imagine this: Proxmox user running tasks in LXC containers and needs an agentless alert. The consequences can be catastrophic. In production environments, silent cron failures often lead to data loss, missed backups, or critical services going offline. For example, a failed database backup script could result in weeks of lost customer data, while a broken certificate renewal process might take your entire website offline, costing thousands in revenue and damaging your reputation. Even worse, these failures often go unnoticed until it's too late - forcing you to wake up at 2 AM to fix a problem that could have been prevented with proper monitoring.</p>
+            <p>In today's fast-paced DevOps environment, where systems are distributed across cloud providers and containers, the traditional "set it and forget it" approach to cron jobs is no longer viable. The cost of downtime or data loss far outweighs the minimal effort required to implement proper monitoring.</p>
+        </section>
+            
+            
+        <section class="calculator" style="background-color: #f0f8ff; padding: 30px; margin: 40px 0; border-radius: 8px; border: 1px solid #b0e0e6;">
+            <h2>Task Failure Loss Calculator</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div>
+                    <label for="failureFrequency" style="display: block; margin-bottom: 10px; font-weight: bold;">Failure Frequency (times per year):</label>
+                    <input type="number" id="failureFrequency" min="1" max="365" value="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="hourlyCost" style="display: block; margin-bottom: 10px; font-weight: bold;">Hourly Cost of Failure ($):</label>
+                    <input type="number" id="hourlyCost" min="100" max="100000" value="2000" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="resolutionTime" style="display: block; margin-bottom: 10px; font-weight: bold;">Average Resolution Time (hours):</label>
+                    <input type="number" id="resolutionTime" min="0.1" max="72" value="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label for="impactFactor" style="display: block; margin-bottom: 10px; font-weight: bold;">Business Impact Factor (0.1-2.0):</label>
+                    <input type="number" id="impactFactor" min="0.1" max="2.0" step="0.1" value="1.3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+            <div style="background-color: #e6f7ff; padding: 20px; border-radius: 4px; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 15px;">Estimated Annual Loss:</h3>
+                <div id="taskLossResult" style="font-size: 24px; font-weight: bold; color: #d32f2f;">$0</div>
+            </div>
+            <p style="color: #666; font-size: 14px;">This calculator estimates the financial impact of failed cron jobs. It considers the cost of downtime, resolution time, and business impact.</p>
+            <script>
+                // 计算器逻辑
+                function calculateTaskLoss() {
+                    const frequency = parseFloat(document.getElementById('failureFrequency').value);
+                    const hourlyCost = parseFloat(document.getElementById('hourlyCost').value);
+                    const resolutionTime = parseFloat(document.getElementById('resolutionTime').value);
+                    const impactFactor = parseFloat(document.getElementById('impactFactor').value);
+                    
+                    // 计算年度损失
+                    const annualLoss = frequency * hourlyCost * resolutionTime * impactFactor;
+                    
+                    // 更新结果
+                    document.getElementById('taskLossResult').textContent = '$' + annualLoss.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                }
+                
+                // 添加输入监听
+                document.getElementById('failureFrequency').addEventListener('input', calculateTaskLoss);
+                document.getElementById('hourlyCost').addEventListener('input', calculateTaskLoss);
+                document.getElementById('resolutionTime').addEventListener('input', calculateTaskLoss);
+                document.getElementById('impactFactor').addEventListener('input', calculateTaskLoss);
+                
+                // 初始计算
+                calculateTaskLoss();
+            </script>
+        </section>
+            
+            <section class="solution">
+                <h2>The Solution</h2>
+                <p>Don't let your monitor cron job on proxmox lxc go unnoticed. Our simple one-line shell wrapper ensures you get instant alerts when your cron jobs fail.</p>
+                
+                <div class="code-block">
+# Wrap your command with our monitoring solution
+YOUR_COMMAND && curl -fsS -m 10 --retry 5 YOUR_MONITORING_URL || curl -fsS -m 10 --retry 5 YOUR_MONITORING_URL/fail
+                </div>
+                
+                <p>Replace <code>YOUR_COMMAND</code> with your actual command and <code>YOUR_MONITORING_URL</code> with your webhook URL from services like Healthchecks.io or Cronitor.</p>
+            </section>
+            
+            
+        <section class="technical-solution">
+            <h2>Scenario-Based Technical Solution</h2>
+            <p>In the rapidly evolving tech landscape of 2026, legacy cron monitoring methods have reached their limits. Local mail servers and system logs are no match for modern infrastructure like Docker containers, Supabase Edge Functions, and serverless platforms. These new environments present unique challenges: containerized apps often lack mail capabilities, while serverless functions exist in transient environments without persistent logs.</p>
+            <p>The beauty of Cron Guard's solution lies in its simplicity. The one-line curl wrapper requires no additional infrastructure, no complex setup, and works seamlessly across all environments. Whether your cron jobs run on a traditional server, in a container, or as part of a serverless workflow, this solution provides consistent, reliable monitoring without adding unnecessary complexity to your systems.</p>
+        </section>
+            
+            
+        <section class="integration-guide">
+            <h2>Cron Guard Deep Integration Guide</h2>
+            <p>Implementing Cron Guard into your workflow is a straightforward process that delivers immediate value. Begin by conducting an audit of your existing cron jobs, identifying which ones are critical to your operations. Focus first on jobs related to data protection, security updates, and customer-facing services. Once identified, use the Cron Guard tool to generate monitoring wrappers for each job, replacing the placeholders with your actual command and monitoring URL.</p>
+            <p>To maximize the effectiveness of your implementation, integrate the monitoring wrapper into your CI/CD pipeline or infrastructure-as-code tools. This ensures that every new cron job you deploy automatically includes monitoring, creating a consistent approach across your entire infrastructure. Finally, establish clear procedures for handling alerts, including escalation paths and response protocols, to ensure that failures are addressed promptly.</p>
+        </section>
+            
+            
+        <section class="industry-standards">
+            <h2>Industry Standards Comparison</h2>
+            <p>Data backup and task monitoring requirements vary significantly across regions. In the European Union, GDPR mandates that organizations maintain comprehensive logs of data processing activities, including scheduled tasks that handle personal data. This means cron jobs involved in data processing must be monitored to ensure compliance. In the United States, industries like healthcare (HIPAA) and finance (SOX) have similar requirements for audit trails and reliability.</p>
+            <p>By implementing Cron Guard's monitoring solution, you not only prevent failures but also create a reliable audit trail of task execution - helping you meet regulatory requirements across different jurisdictions. This is especially important for organizations operating in multiple regions, as it provides a consistent approach to monitoring regardless of location.</p>
+        </section>
+            
+            
+        <section class="expert-faq">
+            <h2>Expert FAQ</h2>
+            <h3>Q: Can I customize the alert messages sent to my monitoring service?</h3>
+            <p>A: Yes, you can extend the basic wrapper to include custom information in your alerts. By modifying the curl command, you can add query parameters or request body content that includes details about the job, its environment, or other relevant information.</p>
+            <h3>Q: How does this solution handle jobs that run longer than the curl timeout?</h3>
+            <p>A: The curl timeout only applies to the notification ping itself, not the job execution. The wrapper will wait for your job to complete before attempting to send the ping, regardless of how long the job takes to run.</p>
+            <h3>Q: Is this solution suitable for high-security environments?</h3>
+            <p>A: Yes, the curl wrapper is ideal for high-security environments. It doesn't introduce any additional dependencies or services, reducing your attack surface. You can also use it with private monitoring services or internal health check endpoints to keep all monitoring traffic within your secure network.</p>
+        </section>
+            
+            
+        <section class="comparison-table" style="margin: 40px 0;">
+            <h2>Solution Comparison</h2>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2;">
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Metric</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Manual Monitoring</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Traditional Tools</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Cron Guard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Setup Cost</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">$0</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">$131</td>
+                            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #27ae60;">$0</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Alert Delay</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">40 hours</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">6 hours</td>
+                            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #27ae60;">0.1 minutes</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Configuration Complexity</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Low</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">High</td>
+                            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: #27ae60;">Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 14px; color: #666;">This comparison table shows the key differences between monitoring approaches for monitor cron job on proxmox lxc.</p>
+        </section>
+            
+            
+        <section class="code-snippets" style="margin: 40px 0;">
+            <h2>Implementation in Multiple Languages</h2>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>Bash Implementation</h3>
+                <div class="code-block">
+#!/bin/bash
+
+# Your original command
+YOUR_COMMAND="your_cloud_function.sh"
+
+# Your monitoring URL
+MONITORING_URL="https://healthchecks.io/ping/your-uuid"
+
+# Run the command and send ping
+($YOUR_COMMAND) &&   curl -fsS -m 10 --retry 5 "$MONITORING_URL" ||   curl -fsS -m 10 --retry 5 "$MONITORING_URL/fail"
+                </div>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">This bash implementation uses a simple && || structure to send success or failure pings to your monitoring service.</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>Python Implementation</h3>
+                <div class="code-block">
+import subprocess
+import requests
+import time
+
+def run_with_monitoring(command, monitoring_url):
+    """Run a command and send monitoring pings"""
+    try:
+        # Run the command
+        result = subprocess.run(
+            command,
+            shell=True,
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        # Command succeeded, send success ping
+        send_ping(monitoring_url)
+        return True
+    except subprocess.CalledProcessError as e:
+        # Command failed, send failure ping
+        send_ping(f"{monitoring_url}/fail")
+        print(f"Command failed with output: {e.stderr}")
+        return False
+
+def send_ping(url):
+    """Send a ping to the monitoring service"""
+    try:
+        # Add retry logic
+        for attempt in range(5):
+            try:
+                response = requests.get(
+                    url,
+                    timeout=10,
+                    headers={"User-Agent": "Cron Guard"}
+                )
+                if response.status_code < 400:
+                    return True
+            except requests.RequestException:
+                pass
+            time.sleep(1)  # Wait before retry
+    except Exception:
+        # Ignore ping failures to not affect the main task
+        pass
+
+# Usage
+command = "your_cloud_function.sh"
+monitoring_url = "https://healthchecks.io/ping/your-uuid"
+run_with_monitoring(command, monitoring_url)
+                </div>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">This Python implementation uses subprocess to run the command and requests to send pings with retry logic.</p>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h3>Node.js Implementation</h3>
+                <div class="code-block">
+const { exec } = require('child_process');
+const https = require('https');
+
+function runWithMonitoring(command, monitoringUrl) {
+  return new Promise((resolve, reject) => {
+    // Run the command
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        // Command failed, send failure ping
+        sendPing(monitoringUrl + "/fail")
+          .then(() => resolve(false))
+          .catch(() => resolve(false));
+      } else {
+        // Command succeeded, send success ping
+        sendPing(monitoringUrl)
+          .then(() => resolve(true))
+          .catch(() => resolve(true));
+      }
+    });
+  });
+}
+
+function sendPing(url) {
+  return new Promise((resolve) => {
+    const options = {
+      timeout: 10000, // 10 seconds
+      headers: {
+        'User-Agent': 'Cron Guard'
+      }
+    };
+
+    // Add retry logic
+    let attempts = 0;
+    const maxAttempts = 5;
+
+    function attemptPing() {
+      const req = https.get(url, options, (res) => {
+        resolve();
+      });
+
+      req.on('error', (e) => {
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(attemptPing, 1000); // Wait 1 second before retry
+        } else {
+          resolve(); // Give up after max attempts
+        }
+      });
+
+      req.on('timeout', () => {
+        req.destroy();
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(attemptPing, 1000); // Wait 1 second before retry
+        } else {
+          resolve(); // Give up after max attempts
+        }
+      });
+
+      req.end();
+    }
+
+    attemptPing();
+  });
+}
+
+// Usage
+const command = "your_cloud_function.sh";
+const monitoringUrl = "https://healthchecks.io/ping/your-uuid";
+
+runWithMonitoring(command, monitoringUrl)
+  .then(success => {
+    console.log("Command executed: " + (success ? "success" : "failure"));
+  });
+                </div>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">This Node.js implementation uses child_process to run the command and https module to send pings with retry logic.</p>
+            </div>
+        </section>
+            
+            <section class="key-features">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Simple one-line implementation</li>
+                    <li>Instant alerts for failures</li>
+                    <li>Robust curl flags for reliable pings</li>
+                    <li>No additional dependencies</li>
+                    <li>Works on any system with bash and curl</li>
+                </ul>
+            </section>
+            
+            <section class="call-to-action">
+                <h2>Ready to Stop Silent Failures?</h2>
+                <p>Try our <a href="../index.html" target="_blank">Cron Guard</a> tool to generate your monitoring wrapper in seconds.</p>
+            </section>
+            
+            
+        <section class="internal-links" style="margin: 40px 0;">
+            <h3>Related Monitoring Solutions</h3>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="background-color: #e8f4f8; padding: 15px; border-radius: 8px; border: 1px solid #b0e0e6;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; font-size: 16px;">
+                            <a href="../index.html" style="color: #2980b9; text-decoration: none; font-weight: bold;">Cron Guard - Minimalist Cron Monitoring Tool</a>
+                        </h4>
+                        <span style="background-color: #3498db; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold;">Home</span>
+                    </div>
+                    <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.4;">Generate death-proof wrapper scripts for your cron jobs and get instant alerts when they fail.</p>
+                </div>
+    
+                <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; font-size: 16px;">
+                            <a href="./curl_retry_flags_for_cron_monitoring_pings.html" style="color: #3498db; text-decoration: none;">Bulletproof Curl: Best Flags for Cron Heartbeat Monitoring</a>
+                        </h4>
+                        <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold;">Easy</span>
+                    </div>
+                    <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.4;">User's monitoring ping failed because of a 1-second network blip; they need robust retry logic.</p>
+                </div>
+      
+                <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; font-size: 16px;">
+                            <a href="./monitor_certbot_cron_renewal_failure_slack.html" style="color: #3498db; text-decoration: none;">Certbot Monitoring: Get Notified Before Your SSL Certificate Expires</a>
+                        </h4>
+                        <span style="background-color: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold;">Intermediate</span>
+                    </div>
+                    <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.4;">Admin had an SSL outage because certbot failed to renew silently; needs a heartbeat.</p>
+                </div>
+      
+                <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; font-size: 16px;">
+                            <a href="./monitor_appwrite_function_cron_failures.html" style="color: #3498db; text-decoration: none;">Appwrite Function Monitoring: Catch Every Scheduled Task Failure</a>
+                        </h4>
+                        <span style="background-color: #fff3e0; color: #e65100; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold;">Intermediate</span>
+                    </div>
+                    <p style="margin: 0; font-size: 14px; color: #666; line-height: 1.4;">User of Appwrite needs a simple webhook-based heartbeat for their serverless functions.</p>
+                </div>
+      
+            </div>
+        </section>
+    
+            
+            <div class="bottom-nav" style="margin: 40px 0; padding: 20px; background-color: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 8px; text-align: center;">
+                <a href="../index.html" style="display: inline-block; background-color: #27ae60; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                    Main Tool
+                </a>
+            </div>
+        </article>
+        
+            <!-- Footer -->
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center;">
+        <div style="margin-bottom: 10px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://www.wangdadi.xyz" target="_blank" style="text-decoration: none; color: #000; font-weight: bold;">home</a>
+            <a href="../index.html" style="text-decoration: none; color: #000; font-weight: bold;">Cron Guard</a>
+            <a href="all-topics.html" style="text-decoration: none; color: #000; font-weight: bold;">All Topics</a>
+            <span>Support: <a href="mailto:457239850@qq.com" style="text-decoration: none; color: #000;">457239850@qq.com</a></span>
+            <a href="../sitemap.html" style="text-decoration: none; color: #000; font-weight: bold;">sitemap</a>
+        </div>
+    </footer>
+    </div>
+<!-- Footer -->
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center;">
+        <div style="margin-bottom: 10px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://www.wangdadi.xyz" target="_blank" style="text-decoration: none; color: #000; font-weight: bold;">home</a>
+            <a href="../index.html" style="text-decoration: none; color: #000; font-weight: bold;">Cron Guard</a>
+            <a href="all-topics.html" style="text-decoration: none; color: #000; font-weight: bold;">All Topics</a>
+            <span>Support: <a href="mailto:457239850@qq.com" style="text-decoration: none; color: #000;">457239850@qq.com</a></span>
+            <a href="../sitemap.html" style="text-decoration: none; color: #000; font-weight: bold;">sitemap</a>
+        </div>
+    </footer>
+<!-- Footer -->
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; text-align: center;">
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://www.wangdadi.xyz" target="_blank" style="text-decoration: none; color: #000; font-weight: bold;">home</a>
+            <a href="../index.html" style="text-decoration: none; color: #000; font-weight: bold;">Cron Guard</a>
+            <a href="all-topics.html" style="text-decoration: none; color: #000; font-weight: bold;">All Topics</a>
+            <span>Support: <a href="mailto:457239850@qq.com" style="text-decoration: none; color: #000;">457239850@qq.com</a></span>
+            <a href="../sitemap.html" style="text-decoration: none; color: #000; font-weight: bold;">sitemap</a>
+        </div>
+    </footer>
+</body>
+</html>

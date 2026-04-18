@@ -1,0 +1,695 @@
+[
+  {
+    "keyword": "bash script cron silently failing without logs",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Stop Silent Cron Failures: Get Instant Alerts for Bash Scripts",
+    "user_query_scenario": "Developer is frustrated that a critical script stopped running on a VPS but crontab didn't report any error."
+  },
+  {
+    "keyword": "monitor vercel cron job failure externally",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Vercel Cron Monitoring: How to Catch Failures Outside the Dashboard",
+    "user_query_scenario": "SaaS founder needs an external heartbeat to ensure Vercel's internal cron system didn't hang."
+  },
+  {
+    "keyword": "supabase edge function cron failure slack alert",
+    "intent": "Tutorial",
+    "difficulty": 3,
+    "target_page_title": "The Brutal Way to Get Slack Alerts for Supabase Cron Failures",
+    "user_query_scenario": "Dev is using Supabase Edge Functions for database maintenance and needs a 1-line curl wrapper for alerts."
+  },
+  {
+    "keyword": "docker container cron job monitoring agentless",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "Agentless Docker Cron Monitoring: One-Line Shell Wrapper",
+    "user_query_scenario": "Sysadmin wants to monitor tasks inside a lightweight Alpine container without installing heavy monitoring agents."
+  },
+  {
+    "keyword": "raspberry pi cron job failure notification simple",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Simple Raspberry Pi Cron Alerts: No Complex Setup Required",
+    "user_query_scenario": "Hobbyist running a weather station script on Pi and wants a simple ping if the script crashes."
+  },
+  {
+    "keyword": "postgres backup script failed silently on cron",
+    "intent": "Critical Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Never Lose a Database Again: Monitor Postgres Backup Cron Jobs",
+    "user_query_scenario": "A dev realized their pg_dump hasn't run for a month because of a path error that cron ignored."
+  },
+  {
+    "keyword": "why does cron fail but manually works bash",
+    "intent": "Problem Solving",
+    "difficulty": 3,
+    "target_page_title": "Fix: Cron Fails But Script Works Manually (The Environment Path Solution)",
+    "user_query_scenario": "Developer is pulling their hair out because a script runs fine in the terminal but dies in crontab."
+  },
+  {
+    "keyword": "monitor railway.app cron jobs failure",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Railway.app Cron Monitoring: 60-Second Setup for Heartbeat Alerts",
+    "user_query_scenario": "User moving from Heroku to Railway and needs a way to monitor background worker health."
+  },
+  {
+    "keyword": "how to ping healthchecks.io from shell script",
+    "intent": "Tutorial",
+    "difficulty": 2,
+    "target_page_title": "Robust Curl Heartbeats: How to Properly Ping Monitoring Services",
+    "user_query_scenario": "User has a monitoring service but keeps getting 'late' pings because they don't use the correct curl retry flags."
+  },
+  {
+    "keyword": "github actions cron schedule failed alert",
+    "intent": "Alternative Seeking",
+    "difficulty": 3,
+    "target_page_title": "Reliable GitHub Actions Cron Monitoring: External Heartbeat Check",
+    "user_query_scenario": "User finds GitHub Actions cron schedules to be unreliable and needs an external 'dead man switch'."
+  },
+  {
+    "keyword": "monitor alpine linux cron jobs without postfix",
+    "intent": "Minimalist",
+    "difficulty": 1,
+    "target_page_title": "Lightweight Alpine Monitoring: Get Alerts Without Installing Mail Servers",
+    "user_query_scenario": "User is building a minimal Docker image and can't afford the bloat of a local mail server for cron alerts."
+  },
+  {
+    "keyword": "cron job alert to discord webhook bash",
+    "intent": "Tutorial",
+    "difficulty": 2,
+    "target_page_title": "Discord Alerts for Cron: One-Line Bash Wrapper for Devs",
+    "user_query_scenario": "Indie hacker wants all server alerts to go to their private Discord server via curl."
+  },
+  {
+    "keyword": "monitor sqlite backup cron task status",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "SQLite Backup Health: Ensure Your DB Backups Actually Run",
+    "user_query_scenario": "User running a small app on a VPS and needs to know if their daily SQLite vacuum/backup failed."
+  },
+  {
+    "keyword": "check if crontab ran successfully bash",
+    "intent": "Problem Solving",
+    "difficulty": 3,
+    "target_page_title": "The Reliable Way to Check If Your Crontab Tasks Actually Finished",
+    "user_query_scenario": "Developer needs a verification method better than just checking 'grep CRON /var/log/syslog'."
+  },
+  {
+    "keyword": "curl retry flags for cron monitoring pings",
+    "intent": "Tutorial",
+    "difficulty": 1,
+    "target_page_title": "Bulletproof Curl: Best Flags for Cron Heartbeat Monitoring",
+    "user_query_scenario": "User's monitoring ping failed because of a 1-second network blip; they need robust retry logic."
+  },
+  {
+    "keyword": "monitor n8n workflow cron execution failures",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "n8n Workflow Monitoring: Catch Cron Node Failures Instantly",
+    "user_query_scenario": "Self-hosted n8n user needs to ensure their automated workflows don't hang silently."
+  },
+  {
+    "keyword": "bash script notify on non-zero exit code cron",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Catch Every Error: Bash Notification on Non-Zero Exit Code",
+    "user_query_scenario": "Dev wants a universal way to wrap scripts so any error triggers a webhook."
+  },
+  {
+    "keyword": "monitor cloudflare workers cron triggers externally",
+    "intent": "Modern Tech Stack",
+    "difficulty": 3,
+    "target_page_title": "Cloudflare Workers Cron Monitoring: External Verification Hack",
+    "user_query_scenario": "Enterprise dev needs to prove their Cloudflare Worker Cron Trigger executed as expected."
+  },
+  {
+    "keyword": "ubuntu cron job logs not showing up",
+    "intent": "Problem Solving",
+    "difficulty": 3,
+    "target_page_title": "Fix: Ubuntu Cron Logs Missing (And How to Monitor Failures Instead)",
+    "user_query_scenario": "Frustrated Ubuntu user can't find why their script fails and wants a better way than digging through rsyslog."
+  },
+  {
+    "keyword": "monitor certbot cron renewal failure slack",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Certbot Monitoring: Get Notified Before Your SSL Certificate Expires",
+    "user_query_scenario": "Admin had an SSL outage because certbot failed to renew silently; needs a heartbeat."
+  },
+  {
+    "keyword": "monitor nodejs pm2 cron failure alerts",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "PM2 Cron Monitoring: Reliable Alerts for Node.js Scheduled Tasks",
+    "user_query_scenario": "Node developer using PM2's cron feature and needs to know if the process crashed on start."
+  },
+  {
+    "keyword": "monitor aws ec2 cron jobs without cloudwatch",
+    "intent": "Alternative Seeking",
+    "difficulty": 2,
+    "target_page_title": "Simple EC2 Cron Monitoring: Skip the CloudWatch Complexity",
+    "user_query_scenario": "Dev finds CloudWatch too expensive or complex for a single EC2 instance's cron jobs."
+  },
+  {
+    "keyword": "monitor python script cron silent crash",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Python Cron Monitoring: Wrap Your Scripts to Catch Silent Crashes",
+    "user_query_scenario": "Python dev's script hit a library error (ImportError) and died without cron sending an alert."
+  },
+  {
+    "keyword": "bash cron job timeout notification",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Stop Hanging Cron Jobs: Timeout Notifications for Bash Scripts",
+    "user_query_scenario": "Developer has a script that gets stuck in an infinite loop and wants to be notified if it takes too long."
+  },
+  {
+    "keyword": "monitor restic backup cron job failure",
+    "intent": "Critical Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Restic Backup Health: Ensure Your Encrypted Backups Are Successful",
+    "user_query_scenario": "Sysadmin using Restic and needs to know if the repository was locked or backup failed."
+  },
+  {
+    "keyword": "monitor rclone sync cron failure",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Rclone Sync Alerts: How to Monitor Cloud Sync Cron Jobs",
+    "user_query_scenario": "User syncing local data to B2/S3 and wants an alert if the sync failed due to auth or network."
+  },
+  {
+    "keyword": "monitor cron job exit code 127",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Fix Cron Exit Code 127: Command Not Found (And How to Monitor It)",
+    "user_query_scenario": "Beginner dev is confused why bash finds a command but cron doesn't; needs a wrapper to catch the 127 error."
+  },
+  {
+    "keyword": "monitor cron job exit code 1",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Catch Every Exit Code 1: Better Monitoring for Failing Crontab Tasks",
+    "user_query_scenario": "User wants to be alerted every time a script returns a generic error code 1."
+  },
+  {
+    "keyword": "monitor docker-compose cron service health",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Docker-Compose Cron Monitoring: Simple Health Checks for Services",
+    "user_query_scenario": "Dev running a cron service in compose and needs an external ping to verify it's still ticking."
+  },
+  {
+    "keyword": "monitor laravel scheduled tasks externally",
+    "intent": "Alternative Seeking",
+    "difficulty": 3,
+    "target_page_title": "Laravel Task Scheduling Monitoring: Lightweight External Heartbeats",
+    "user_query_scenario": "PHP developer doesn't want to pay for Laravel Forge/Envoyer monitoring and wants a free 1-line solution."
+  },
+  {
+    "keyword": "monitor django management command cron failure",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Django Cron Monitoring: Alerts for Failed Management Commands",
+    "user_query_scenario": "Django dev running 'python manage.py' tasks and needs to catch database connection errors."
+  },
+  {
+    "keyword": "monitor sidekiq cron job failure slack",
+    "intent": "Modern Tech Stack",
+    "difficulty": 3,
+    "target_page_title": "Sidekiq-Cron Monitoring: Simple External Alerts for Ruby Devs",
+    "user_query_scenario": "Ruby dev needs to ensure their Sidekiq recurring jobs are actually being enqueued."
+  },
+  {
+    "keyword": "monitor kubernetes cronjob failure without prometheus",
+    "intent": "Alternative Seeking",
+    "difficulty": 3,
+    "target_page_title": "K8s CronJob Monitoring: The Simple Way Without Prometheus Bloat",
+    "user_query_scenario": "Dev running a small K8s cluster and finds Prometheus too heavy for simple cron monitoring."
+  },
+  {
+    "keyword": "monitor appwrite function cron failures",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Appwrite Function Monitoring: Catch Every Scheduled Task Failure",
+    "user_query_scenario": "User of Appwrite needs a simple webhook-based heartbeat for their serverless functions."
+  },
+  {
+    "keyword": "monitor pocketbase cron job status",
+    "intent": "Modern Tech Stack",
+    "difficulty": 1,
+    "target_page_title": "PocketBase Cron Monitoring: Ensure Your Hooks and Tasks Run",
+    "user_query_scenario": "PocketBase developer wants to monitor internal Go/JS cron jobs."
+  },
+  {
+    "keyword": "monitor cron job failure on nixos",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "NixOS Cron Monitoring: Reliable Alerts for Declarative Systems",
+    "user_query_scenario": "NixOS user needs to monitor systemd timers or cron jobs in a declarative way."
+  },
+  {
+    "keyword": "monitor cron job failure on alpine docker",
+    "intent": "Minimalist",
+    "difficulty": 1,
+    "target_page_title": "Alpine Docker Cron Health: Minimal Monitoring for Tiny Containers",
+    "user_query_scenario": "User optimizing for image size and wants a simple curl-based monitoring script."
+  },
+  {
+    "keyword": "monitor cron job on oracle cloud free tier",
+    "intent": "Modern Tech Stack",
+    "difficulty": 1,
+    "target_page_title": "Oracle Cloud Free Tier Cron Monitoring: Zero-Cost Alerting",
+    "user_query_scenario": "User running scripts on Oracle's free ARM instances and needs a zero-cost monitoring solution."
+  },
+  {
+    "keyword": "monitor cron job on fly.io machines",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Fly.io Cron Monitoring: Heartbeat Alerts for Fly Machines",
+    "user_query_scenario": "User running Fly.io scheduled machines and wants an alert if the machine fails to start."
+  },
+  {
+    "keyword": "monitor cron job on hetzner cloud vps",
+    "intent": "Modern Tech Stack",
+    "difficulty": 1,
+    "target_page_title": "Hetzner Cloud Cron Monitoring: Simple Setup for VPS Admins",
+    "user_query_scenario": "Dev with a fleet of Hetzner nodes needs a centralized way to see if all crons are firing."
+  },
+  {
+    "keyword": "monitor cron job on digitalocean droplet simple",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "DigitalOcean Droplet Cron Alerts: Monitor Tasks in 60 Seconds",
+    "user_query_scenario": "User has a small droplet and wants a 'set it and forget it' monitoring one-liner."
+  },
+  {
+    "keyword": "monitor cron job on linode vps",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Linode Cron Monitoring: Reliable Heartbeats for Linux Tasks",
+    "user_query_scenario": "Linode user wants an alternative to complex log-watch scripts for cron failures."
+  },
+  {
+    "keyword": "monitor cron job on ovh vps",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "OVH VPS Cron Alerts: Simple Heartbeat for Background Scripts",
+    "user_query_scenario": "User running backup scripts on OVH and wants a simple failure ping."
+  },
+  {
+    "keyword": "monitor cron job on vultr vps",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Vultr Cron Monitoring: Ensure Your Scheduled Tasks Never Fail Silently",
+    "user_query_scenario": "Vultr user needs a simple way to monitor daily maintenance scripts."
+  },
+  {
+    "keyword": "monitor cron job on raspberry pi zero w",
+    "intent": "Minimalist",
+    "difficulty": 1,
+    "target_page_title": "Pi Zero W Cron Monitoring: Lightweight Alerts for Low-Power Devices",
+    "user_query_scenario": "User has a Pi Zero running a sensor script and needs a low-resource way to monitor it."
+  },
+  {
+    "keyword": "monitor cron job on arch linux",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Arch Linux Cron Monitoring: Simple Alerts for Systemd Timers",
+    "user_query_scenario": "Arch user wants to monitor their custom systemd timers or cron jobs with a simple heartbeat."
+  },
+  {
+    "keyword": "monitor cron job on debian server simple",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Debian Server Cron Health: Get Notified When Scripts Fail",
+    "user_query_scenario": "Debian admin wants a simple failure notification system without installing MTA."
+  },
+  {
+    "keyword": "monitor cron job on centos server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "CentOS Cron Monitoring: Reliable Alerts for Legacy Systems",
+    "user_query_scenario": "Enterprise admin needs to monitor legacy CentOS crons with a modern webhook."
+  },
+  {
+    "keyword": "monitor cron job on fedora server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Fedora Server Cron Alerts: Simple One-Line Monitoring Setup",
+    "user_query_scenario": "Fedora user wants to catch failing scripts with a simple curl ping."
+  },
+  {
+    "keyword": "monitor cron job on rocky linux",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Rocky Linux Cron Monitoring: Reliable Heartbeats for Production",
+    "user_query_scenario": "User migrated to Rocky and needs to monitor their production cron jobs."
+  },
+  {
+    "keyword": "monitor cron job on alma linux",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Alma Linux Cron Alerts: How to Prevent Silent Script Failures",
+    "user_query_scenario": "Sysadmin needs an easy way to monitor cron health on Alma nodes."
+  },
+  {
+    "keyword": "monitor cron job on openSUSE server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "openSUSE Cron Monitoring: Lightweight One-Line Alerts",
+    "user_query_scenario": "openSUSE user wants a simple heartbeat for their server scripts."
+  },
+  {
+    "keyword": "monitor cron job on freebsd server",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "FreeBSD Cron Monitoring: Reliable Alerts for BSD Systems",
+    "user_query_scenario": "FreeBSD admin wants to monitor system crons with a modern curl-based heartbeat."
+  },
+  {
+    "keyword": "monitor cron job on trueNAS scale",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "TrueNAS Scale Cron Alerts: Monitor Your Backup Scripts",
+    "user_query_scenario": "User running custom scripts on TrueNAS and wants to know if they fail."
+  },
+  {
+    "keyword": "monitor cron job on unraid server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Unraid Cron Monitoring: Simple Alerts for User Scripts Plugin",
+    "user_query_scenario": "Unraid user using 'User Scripts' plugin and wants an external ping for failures."
+  },
+  {
+    "keyword": "monitor cron job on proxmox lxc",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Proxmox LXC Cron Monitoring: Simple Heartbeats for Containers",
+    "user_query_scenario": "Proxmox user running tasks in LXC containers and needs an agentless alert."
+  },
+  {
+    "keyword": "monitor cron job on synology dsm 7",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Synology DSM 7 Cron Monitoring: Simple One-Line Alerts",
+    "user_query_scenario": "Synology user running Task Scheduler scripts and needs to know if they fail."
+  },
+  {
+    "keyword": "monitor cron job on qnap nas",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "QNAP NAS Cron Monitoring: Catch Every Failing Script",
+    "user_query_scenario": "QNAP user wants a simple way to monitor their background NAS tasks."
+  },
+  {
+    "keyword": "monitor cron job on asustor nas",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Asustor NAS Cron Alerts: Simple Heartbeat for Scheduled Tasks",
+    "user_query_scenario": "NAS user needs an easy alert for their backup scripts."
+  },
+  {
+    "keyword": "monitor cron job on terra-master nas",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "TerraMaster NAS Cron Monitoring: Reliable Failure Notifications",
+    "user_query_scenario": "User running scripts on TOS and needs a simple failure ping."
+  },
+  {
+    "keyword": "monitor cron job on tailscale nodes",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Tailscale Node Cron Monitoring: Secure Heartbeats for Your Mesh",
+    "user_query_scenario": "User wants to monitor crons on their private Tailscale nodes via curl."
+  },
+  {
+    "keyword": "monitor cron job on zerotier nodes",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "ZeroTier Node Cron Monitoring: Simple Alerts for Private Servers",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via ZeroTier."
+  },
+  {
+    "keyword": "monitor cron job on cloudflare tunnel",
+    "intent": "Modern Tech Stack",
+    "difficulty": 3,
+    "target_page_title": "Cloudflare Tunnel Cron Monitoring: Secure Failure Alerts",
+    "user_query_scenario": "User running tasks behind a CF Tunnel and wants an external heartbeat."
+  },
+  {
+    "keyword": "monitor cron job on ngrok tunnel",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Ngrok Tunnel Cron Monitoring: Catch Silent Failures on Local Servers",
+    "user_query_scenario": "User running local scripts exposed via ngrok and needs to monitor them."
+  },
+  {
+    "keyword": "monitor cron job on localtunnel",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Localtunnel Cron Monitoring: Simple Heartbeats for Local Dev",
+    "user_query_scenario": "Dev monitoring local cron tasks during development."
+  },
+  {
+    "keyword": "monitor cron job on wireguard vpn",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "WireGuard VPN Cron Monitoring: Secure Heartbeats for Your VPN",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via WireGuard."
+  },
+  {
+    "keyword": "monitor cron job on openVPN",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "OpenVPN Cron Monitoring: Reliable Alerts for Secure Networks",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via OpenVPN."
+  },
+  {
+    "keyword": "monitor cron job on softether vpn",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "SoftEther VPN Cron Monitoring: Simple Heartbeats for Your VPN",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via SoftEther."
+  },
+  {
+    "keyword": "monitor cron job on tinc vpn",
+    "intent": "Modern Tech Stack",
+    "difficulty": 3,
+    "target_page_title": "Tinc VPN Cron Monitoring: Secure Heartbeats for Mesh Networks",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via Tinc."
+  },
+  {
+    "keyword": "monitor cron job on nebula mesh",
+    "intent": "Modern Tech Stack",
+    "difficulty": 3,
+    "target_page_title": "Nebula Mesh Cron Monitoring: Reliable Alerts for Your Mesh",
+    "user_query_scenario": "User needs to monitor tasks on servers connected via Nebula."
+  },
+  {
+    "keyword": "monitor cron job on meshcentral",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "MeshCentral Cron Monitoring: Simple Heartbeats for Managed Nodes",
+    "user_query_scenario": "User needs to monitor tasks on servers managed via MeshCentral."
+  },
+  {
+    "keyword": "monitor cron job on rustdesk nodes",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "RustDesk Node Cron Monitoring: Catch Every Script Failure",
+    "user_query_scenario": "User needs to monitor tasks on servers managed via RustDesk."
+  },
+  {
+    "keyword": "monitor cron job on dwservice nodes",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "DWService Node Cron Monitoring: Simple Heartbeats for Remote Nodes",
+    "user_query_scenario": "User needs to monitor tasks on servers managed via DWService."
+  },
+  {
+    "keyword": "monitor cron job on chromeOS crostini",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "ChromeOS Crostini Cron Monitoring: Simple Alerts for Linux Tasks",
+    "user_query_scenario": "User running scripts in ChromeOS Linux and wants an alert if they fail."
+  },
+  {
+    "keyword": "monitor cron job on wsl2 ubuntu",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "WSL2 Cron Monitoring: Catch Every Failing Script on Windows",
+    "user_query_scenario": "User running scripts in WSL2 and wants a heartbeat for long-running tasks."
+  },
+  {
+    "keyword": "monitor cron job on termux android",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "Termux Cron Monitoring: Simple Alerts for Android Automation",
+    "user_query_scenario": "User running automation on Android via Termux and wants an external ping for failures."
+  },
+  {
+    "keyword": "monitor cron job on userland android",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "UserLAnd Cron Monitoring: Catch Silent Failures on Android Linux",
+    "user_query_scenario": "User running a Linux distro on Android and needs to monitor scheduled tasks."
+  },
+  {
+    "keyword": "monitor cron job on iSH iOS",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "iSH iOS Cron Monitoring: Simple Heartbeats for iPad Automation",
+    "user_query_scenario": "User running scripts on iOS via iSH and wants to know if they fail."
+  },
+  {
+    "keyword": "monitor cron job on a-shell iOS",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "a-Shell iOS Cron Alerts: Reliable Monitoring for Mobile Automation",
+    "user_query_scenario": "User running automation on iOS via a-Shell and wants a failure ping."
+  },
+  {
+    "keyword": "monitor cron job on pythonista iOS",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "Pythonista iOS Cron Monitoring: Catch Every Script Failure",
+    "user_query_scenario": "User running Python automation on iOS and needs an external heartbeat."
+  },
+  {
+    "keyword": "monitor cron job on shortcuts iOS cron-like",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "iOS Shortcuts Automation Monitoring: Reliable External Heartbeats",
+    "user_query_scenario": "User running complex iOS Shortcuts and wants to know if they fail to execute."
+  },
+  {
+    "keyword": "monitor cron job on tasker android",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "Tasker Android Monitoring: Simple Heartbeats for Automation",
+    "user_query_scenario": "User running complex Tasker automation and wants a failure ping via curl."
+  },
+  {
+    "keyword": "monitor cron job on macos launchd",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "macOS launchd Monitoring: Reliable Alerts for Scheduled Tasks",
+    "user_query_scenario": "Mac user wants to monitor their launchd agents with a simple heartbeat."
+  },
+  {
+    "keyword": "monitor cron job on macos keyboard maestro",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "Keyboard Maestro Monitoring: Catch Every Macro Failure",
+    "user_query_scenario": "Power user wants an external heartbeat for their KM macros."
+  },
+  {
+    "keyword": "monitor cron job on macos hazel",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "Hazel macOS Monitoring: Simple Heartbeats for File Automation",
+    "user_query_scenario": "User wants to know if their Hazel rules stopped working."
+  },
+  {
+    "keyword": "monitor cron job on macos alfred workflows",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "Alfred Workflow Monitoring: Reliable Alerts for macOS Automation",
+    "user_query_scenario": "User wants to monitor long-running Alfred workflows."
+  },
+  {
+    "keyword": "monitor cron job on macos bettertouchtool",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "BetterTouchTool Monitoring: Catch Every Script Failure",
+    "user_query_scenario": "User wants to monitor BTT background scripts."
+  },
+  {
+    "keyword": "monitor cron job on macos hammerSpoon",
+    "intent": "Minimalist",
+    "difficulty": 3,
+    "target_page_title": "Hammerspoon Monitoring: Reliable Heartbeats for macOS Automation",
+    "user_query_scenario": "User wants to monitor their Hammerspoon config and scripts."
+  },
+  {
+    "keyword": "monitor cron job on steam deck desktop mode",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Steam Deck Cron Monitoring: Simple Alerts for Desktop Mode",
+    "user_query_scenario": "User running maintenance scripts on Steam Deck and wants a failure ping."
+  },
+  {
+    "keyword": "monitor cron job on steam deck game mode cron-like",
+    "intent": "Problem Solving",
+    "difficulty": 3,
+    "target_page_title": "Steam Deck Game Mode Automation Monitoring: Reliable Heartbeats",
+    "user_query_scenario": "User wants to monitor background scripts on Steam Deck."
+  },
+  {
+    "keyword": "monitor cron job on pinephone mobian",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "PinePhone Cron Monitoring: Reliable Alerts for Mobile Linux",
+    "user_query_scenario": "User wants to monitor automation on their PinePhone."
+  },
+  {
+    "keyword": "monitor cron job on librem 5 pureOS",
+    "intent": "Minimalist",
+    "difficulty": 2,
+    "target_page_title": "Librem 5 Cron Monitoring: Catch Every Script Failure",
+    "user_query_scenario": "User wants to monitor automation on their Librem 5."
+  },
+  {
+    "keyword": "monitor cron job on turing pi 2",
+    "intent": "Modern Tech Stack",
+    "difficulty": 2,
+    "target_page_title": "Turing Pi 2 Cron Monitoring: Simple Alerts for Cluster Tasks",
+    "user_query_scenario": "User wants to monitor crons across their Turing Pi cluster."
+  },
+  {
+    "keyword": "monitor cron job on zimaBoard casaOS",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "ZimaBoard CasaOS Cron Alerts: Reliable Monitoring for Home Servers",
+    "user_query_scenario": "User running scripts on CasaOS and wants a failure ping."
+  },
+  {
+    "keyword": "monitor cron job on amber server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Amber Server Cron Monitoring: Simple Heartbeats for Private Cloud",
+    "user_query_scenario": "User wants to monitor scripts on their Amber server."
+  },
+  {
+    "keyword": "monitor cron job on umbrel server",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "Umbrel Server Cron Monitoring: Reliable Alerts for Bitcoin Nodes",
+    "user_query_scenario": "User wants to monitor scripts on their Umbrel server."
+  },
+  {
+    "keyword": "monitor cron job on start9 embassy",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "Start9 Embassy Cron Alerts: Simple Heartbeats for Private Servers",
+    "user_query_scenario": "User wants to monitor scripts on their Start9 server."
+  },
+  {
+    "keyword": "monitor cron job on freedomBox",
+    "intent": "Problem Solving",
+    "difficulty": 2,
+    "target_page_title": "FreedomBox Cron Monitoring: Catch Every Script Failure",
+    "user_query_scenario": "User wants to monitor scripts on their FreedomBox."
+  },
+  {
+    "keyword": "monitor cron job on yunohost",
+    "intent": "Problem Solving",
+    "difficulty": 1,
+    "target_page_title": "YunoHost Cron Monitoring: Reliable Alerts for Self-Hosting",
+    "user_query_scenario": "User wants to monitor scripts on their YunoHost server."
+  }
+]

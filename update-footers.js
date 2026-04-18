@@ -48,9 +48,13 @@ function updateAllTopicsHtml() {
         const filePath = './seo-pages/all-topics.html';
         let content = fs.readFileSync(filePath, 'utf8');
         
-        // 在 </body> 标签之前插入页脚
+        // 删除所有现有的页脚
+        const allFootersRegex = /<!-- Footer -->[\s\S]*?<\/footer>/g;
+        content = content.replace(allFootersRegex, '');
+        
+        // 在 </body> 标签之前插入新的页脚
         const bodyEndRegex = /<\/body>/;
-        content = content.replace(bodyEndRegex, `${staticPageFooter}\n</body>`);
+        content = content.replace(bodyEndRegex, `${staticPageFooter.trim()}\n</body>`);
         
         fs.writeFileSync(filePath, content);
         console.log('Updated all-topics.html footer');
@@ -70,15 +74,13 @@ function updateStaticPages() {
                 const filePath = path.join(seoPagesDir, file);
                 let content = fs.readFileSync(filePath, 'utf8');
                 
-                // 替换现有的页脚
-                const existingFooterRegex = /<footer>[\s\S]*?<\/footer>/;
-                if (existingFooterRegex.test(content)) {
-                    content = content.replace(existingFooterRegex, staticPageFooter.trim());
-                } else {
-                    // 在 </body> 标签之前插入页脚
-                    const bodyEndRegex = /<\/body>/;
-                    content = content.replace(bodyEndRegex, `${staticPageFooter.trim()}\n</body>`);
-                }
+                // 删除所有现有的页脚
+                const allFootersRegex = /<!-- Footer -->[\s\S]*?<\/footer>/g;
+                content = content.replace(allFootersRegex, '');
+                
+                // 在 </body> 标签之前插入新的页脚
+                const bodyEndRegex = /<\/body>/;
+                content = content.replace(bodyEndRegex, `${staticPageFooter.trim()}\n</body>`);
                 
                 fs.writeFileSync(filePath, content);
                 console.log(`Updated ${file} footer`);
